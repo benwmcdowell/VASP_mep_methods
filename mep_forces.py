@@ -33,7 +33,7 @@ def mep_forces(filepath):
     time=[0.0]
     potim=0.0
     try:
-        for i in range(images):
+        for i in range(1,images-1):
             with open('./'+str('{:02d}'.format(i))+'/OUTCAR','r') as file:
                 counter = 0
                 atomnum=0
