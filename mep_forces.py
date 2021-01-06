@@ -50,7 +50,7 @@ def mep_forces(filepath):
                         counter=atomnum+1
                     #in a standard VASP compilation the CHAIN + TOTAL force is plotted
                     #in a VASP compilation with VTST the tangent force is plotted
-                    elif 'CHAIN + TOTAL' in line or 'NEB: Tangent' in line:
+                    elif 'TOTAL-FORCE' in line:
                         counter=-2
                         tempavg=0.0
                         tempmax=0.0
@@ -72,7 +72,7 @@ def mep_forces(filepath):
                         if i==images-2:
                             rc[i+1].append(float(line.split()[9])+rc[i][-1])
                     elif counter<atomnum and atomnum!=0 and counter>=0 and i in range(1,images-1):
-                        neb_force=norm(array([float(line.split()[j]) for j in range(3)]))
+                        neb_force=norm(array([float(line.split()[j]) for j in range(3,6)]))
                         tempavg+=neb_force/atomnum
                         if neb_force>tempmax:
                             tempmax=neb_force
