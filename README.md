@@ -20,5 +20,9 @@ The reaction coordinate is normalized so that the image in directory 00/ is at 0
 Example of intended usage: python mep_energy or python mep_energy -i my_mep_directory
 
 
+calc_reaction_prefactor.py
+
+Calculates the reaction prefactor from a OUTCAR file for which IBRION=5,6,7,8. Also prints any imagniary energies (in eV) that were excluded from the prefactor product.
+
 
 Compatible with VASP 5.4.4, Python 2.7.13 and 3.6.5, and VTST 3.2.
