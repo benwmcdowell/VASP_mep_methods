@@ -1,4 +1,4 @@
-mep_forces_from_VASP.py:
+mep_forces.py:
 
 Parses out and plots the evolution of forces and reaction coordinates amongst each intermediate image in a minimum energy pathway (mep) calculation performed with VASP. This is useful for monitoring the evolution of forces relative to convergence criteria during or between job submissions.
 
@@ -9,7 +9,7 @@ The reaction coordinate is normalized so that the image in directory 00/ is at 0
 Example of intended usage: python mep_forces.py or python mep_forces.py -i my_mep_directory
 
 
-mep_energy_from_VASP.py:
+mep_energy.py:
 
 Plots the energies for each image in a minimum energy pathway (MEP) calculation with VASP. Plotting the initial and final energy profiles is useful for gauging convergence progress during an optimization.
 
