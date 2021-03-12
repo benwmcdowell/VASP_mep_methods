@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Dec  3 12:41:07 2020
-
-@author: Ben
-"""
 from os import listdir
 import matplotlib.pyplot as plt
 import getopt
@@ -98,8 +92,8 @@ def mep_forces(filepath):
     time=time[:minlength-1]
     for i in range(images-2):
         maxf[i]=maxf[i][:minlength-1]
-        avgf[i]=maxf[i][:minlength-1]
-        minf[i]=maxf[i][:minlength-1]
+        avgf[i]=avgf[i][:minlength-1]
+        minf[i]=minf[i][:minlength-1]
     for i in range(images):
         rc[i]=rc[i][:minlength-1]
     
