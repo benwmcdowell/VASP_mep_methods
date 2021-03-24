@@ -89,13 +89,13 @@ def mep_forces(filepath):
     for i in range(images-2):
         if len(maxf[i])<minlength:
             minlength=len(maxf[i])
-    time=time[:minlength-1]
+    time=time[:minlength]
     for i in range(images-2):
-        maxf[i]=maxf[i][:minlength-1]
-        avgf[i]=avgf[i][:minlength-1]
-        minf[i]=minf[i][:minlength-1]
+        maxf[i]=maxf[i][:minlength]
+        avgf[i]=avgf[i][:minlength]
+        minf[i]=minf[i][:minlength]
     for i in range(images):
-        rc[i]=rc[i][:minlength-1]
+        rc[i]=rc[i][:minlength]
     
     #if the time step is 0, like is used to engage the VTST optimizers, the horizontal axis will be in units of ionic steps, not time
     if potim==-1.0:
