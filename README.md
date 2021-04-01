@@ -24,5 +24,9 @@ calc_reaction_prefactor.py
 
 Calculates the reaction prefactor from a OUTCAR file for which IBRION=5,6,7,8. Also prints any imagniary energies (in eV) that were excluded from the prefactor product.
 
+mep_trajectory.py
+
+Calculates the displacements of each atom at each image in the mep sequence, relative to their initial positions: ./00/POSCAR. By setting reverse=True as an argument, the final static image is used as the reference for atomic displacements.
+
 
 Compatible with VASP 5.4.4, Python 2.7.13 and 3.6.5, and VTST 3.2.
