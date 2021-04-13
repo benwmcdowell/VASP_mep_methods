@@ -10,7 +10,7 @@ def calc_mep_phonon_projection(modes,trajectory):
     for i in range(len(trajectory)):
         for j in range(len(modes)):
             for k in range(len(modes[j])):
-                proj[i][j][k]+=abs(dot(modes[j][k],trajectory[i][k]))
+                proj[i][j][k]+=abs(dot(modes[j][k],trajectory[i][k])/norm(trajectory[i][k]))
                 
     if norm(array(trajectory[0]))==0:
         reverse=False
