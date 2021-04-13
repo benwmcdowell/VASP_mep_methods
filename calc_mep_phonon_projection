@@ -1,0 +1,33 @@
+from numpy import zeros, dot, array
+from numpy.linalg import norm
+import matplotlib.pyplot as plt
+
+#calculates the projection of phonon modes onto a minimum energy path trajectory
+#'modes' must be a numpy array with shape (# of modes, # of atoms, 3)
+#'trajectory' must be a numpy array with shape (# of mep images, # of atoms, 3), containing the displacements of atoms relative to the initial or final structure
+def calc_mep_phonon_projection(modes,trajectory):
+    proj=array([[zeros(len(modes[0])) for j in range(len(modes))] for i in range(len(trajectory))])
+    for i in range(len(trajectory)):
+        for j in range(len(modes)):
+            for k in range(len(modes[j])):
+                proj[i][j][k]+=abs(dot(modes[j][k],trajectory[i][k]))
+                
+    if norm(array(trajectory[0]))==0:
+        reverse=False
+    else:
+        reverse=True
+        
+    if not reverse:
+        image_range=range(1,len(proj))
+    else:
+        image_range=range(len(proj)-1)
+        
+    fig,axs=plt.subplots(len(image_range),1,sharex=True)
+    fig.tight_layout()
+    
+    for i,j in zip(image_range,range(len(proj)-1)):
+        axs[j].hist([sum(k) for k in proj[i]])
+        #axs[j].set(ylabel='image #{}'.format(i))
+    axs[-1].set(xlabel='total overlap / $\AA$')
+    plt.setp(axs,xlim=(0,max([sum(k) for k in proj[i] for i in image_range])))
+    fig.show()
